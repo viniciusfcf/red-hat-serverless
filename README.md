@@ -1,4 +1,4 @@
-# Deep Dive de Serverless pro BB
+# Deep Dive de Serverless
 
 Deep Dive sobre Serverless no Openshift.
 
