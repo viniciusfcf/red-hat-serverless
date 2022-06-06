@@ -1,0 +1,30 @@
+{
+    "date": 1654191340,
+    "from": {
+        "id": 144133186,
+        "username": "viniciusferraz",
+        "bot": false,
+        "first_name": "Vinicius",
+        "last_name": "Ferraz",
+        "is_bot": false
+    },
+    "text": "My Message",
+    "chat": {
+        "id": "144133186",
+        "title": null,
+        "type": "private",
+        "all_members_are_administrators": false
+    },
+    "photo": null,
+    "video": null,
+    "audio": null,
+    "document": null,
+    "sticker": null,
+    "entities": null,
+    "caption": null,
+    "game": null,
+    "message_id": 14,
+    "location": null,
+    "caption_entities": null,
+    "reply_markup": null
+}

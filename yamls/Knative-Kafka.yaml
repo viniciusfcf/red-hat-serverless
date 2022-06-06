@@ -1,0 +1,10 @@
+kind: KnativeKafka
+apiVersion: operator.serverless.openshift.io/v1alpha1
+metadata:
+  name: knative-kafka
+  namespace: knative-eventing
+spec:
+  source:
+    enabled: true
+  channel:
+    enabled: false
