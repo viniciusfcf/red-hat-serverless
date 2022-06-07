@@ -14,19 +14,19 @@ public class FunctionTest {
 
     @Test
     void testFunction() {
-        Output output = (new Function()).function(new Input("Hello!"));
-        Assertions.assertEquals("Hello!", output.getMessage());
+        Output output = (new Function()).function(new Input("Vinicius!"));
+        Assertions.assertEquals("Hello from HTTP Event: Vinicius!", output.getMessage());
     }
 
     @Test
     public void testFunctionIntegration() {
         RestAssured.given().contentType("application/json")
-                .body("{\"message\": \"Hello\"}")
+                .body("{\"message\": \"Vinicius\"}")
                 .header("ce-id", "42")
                 .header("ce-specversion", "1.0")
                 .post("/")
                 .then().statusCode(200)
-                .body("message", equalTo("Hello"));
+                .body("message", equalTo("Hello from HTTP Event: Vinicius"));
     }
 
 }

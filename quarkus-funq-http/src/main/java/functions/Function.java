@@ -6,7 +6,8 @@ public class Function {
 
     @Funq
     public Output function(Input input) {
-        return new Output(input.getMessage());
+        System.out.println("FUNQ HTTP EVENT: " + input);
+        return new Output("Hello from HTTP Event: " + input.getMessage());
     }
 
 }

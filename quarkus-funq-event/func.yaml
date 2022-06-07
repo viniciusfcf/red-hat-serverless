@@ -4,7 +4,7 @@ namespace: ""
 runtime: quarkus
 registry: ""
 image: image-registry.openshift-image-registry.svc:5000/my-project/quarkus-funq-event:latest
-imageDigest: sha256:10e18440e6f29aabdb811c71168ba53b77258a689008a44ada1ac823d0785a5d
+imageDigest: sha256:af997418a622ed81ea5b8568368617b0d53721fc4dc183c7447b64ced967eb92
 build: local
 git: {}
 builder: quay.io/boson/faas-jvm-builder:v0.9.2

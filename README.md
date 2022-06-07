@@ -68,6 +68,10 @@ De preferência, ter 2 clusters. O primeiro zerado, o segundo com todo o ambient
 `kn func create -l quarkus -t http quarkus-http`
 `kn func create -l quarkus -t cloudevent quarkus-event`
 
+## Cloud Event
+
+https://cloudevents.io/
+
 ## Código fonte
 
 * https://github.com/viniciusfcf/red-hat-serverless
