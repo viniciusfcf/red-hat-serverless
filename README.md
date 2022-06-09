@@ -1,12 +1,34 @@
 # Deep Dive de Serverless
 
-Deep Dive sobre Serverless no Openshift.
+Deep Dive sobre Serverless no Openshift. Instalando Operators e implantando aplicações e funções utilizando `Quarkus`.
 
-Colocar aqui um resumo de cada projeto da demo
 
-# Requisitos
-* Ambiente para Quarkus: VSCode, JDK, mvn
-* CLI configurado: `kn`, `oc`, `kafka cli` (https://kafka.apache.org/quickstart#quickstart_send)
+## Requisitos
+* Ambiente para Quarkus: `VSCode`, `JDK`, `mvn`
+* CLI configurado: `kn`, `oc`
+
+
+## Projetos
+
+* kafka-producer
+  * Envia várias mensagens para um kafka implantado no mesmo `namespace`: `my-kafka`. Acessar paths: /1, /10, /100 ou /1000
+    * Nome do cluster do kafka: `my-cluster`
+    * Tópico: `my-topic`
+* service-and-eventing
+  * Aplicação padrão com Quarkus, não tem nenhuma extensão específica para serverless/function.
+  * Já existe imagens disponíveis para facilitar o Deep Dive
+    * [viniciusfcf/quarkus-serving-and-eventing-native](https://hub.docker.com/r/viniciusfcf/quarkus-serving-and-eventing-native)
+    * [viniciusfcf/quarkus-serving-and-eventing](https://hub.docker.com/r/viniciusfcf/quarkus-serving-and-eventing)
+* quarkus-funq-http
+  * Projeto que disponibiliza uma função para requisições `HTTP`
+  * Projeto criado utilizando o comando: `kn func create -l quarkus -t http quarkus-funq-http`
+* quarkus-funq-event
+  * Projeto que disponibiliza uma função que recebe eventos
+  * Projeto criado utilizando o comando: `kn func create -l quarkus -t cloudevent quarkus-funq-event`
+
+## Como instalar o comando `kn`
+
+* [Link](https://docs.openshift.com/container-platform/4.10/serverless/cli_tools/installing-kn.html#installing-cli-web-console_installing-kn)
 
 
 ## Apresentação 
@@ -38,6 +60,9 @@ De preferência, ter 2 clusters. O primeiro zerado, o segundo com todo o ambient
   * Criar Knative Eventing no namespace `knative-eventing`
     * Aguardar as `Conditions` estarem True
   * Criar Knative Kafka no namespace `knative-eventing`
+    * O field `source` deve estar com `enabled` = `true`
+    * Remover o field broker
+    * em `channel` colocar o `bootstrapServers` = `my-cluster-kafka-bootstrap.my-kafka.svc:9092` ou `enabled` = `false`
   
 ## Deploy
 
@@ -58,15 +83,10 @@ De preferência, ter 2 clusters. O primeiro zerado, o segundo com todo o ambient
       * /100
       * /1000
 
-## Event Sources
+## Como criar um Ping Source
 
-* Adicionar um Event Source, do tipo Ping, `{"message": "Hello world!"}` e schedule `* * * * *`
+* Adicionar um Event Source, do tipo `Ping Source` com os campos `data`: `{"message": "Hello world!"}`, `schedule`: `* * * * *` e `contentType`: `application/json`
   * De minuto em minuto será enviado o JSON acima
-
-## Criar uma function
-
-`kn func create -l quarkus -t http quarkus-http`
-`kn func create -l quarkus -t cloudevent quarkus-event`
 
 ## Test using `kn`
 
@@ -76,7 +96,7 @@ De preferência, ter 2 clusters. O primeiro zerado, o segundo com todo o ambient
 
 https://cloudevents.io/
 
-## Código fonte
+## Link para este Repositório
 
 * https://github.com/viniciusfcf/red-hat-serverless
 
@@ -87,3 +107,10 @@ https://docs.openshift.com/container-platform/4.10/serverless/functions/serverle
 Deploy: 
 
 https://docs.openshift.com/container-platform/4.10/serverless/functions/serverless-functions-getting-started.html#serverless-deploy-func-kn_serverless-functions-getting-started
+
+## Bugs encontrados
+
+* o comando `kn func invoke` de uma function `http` não está funcionando, já foi aberto `Issue`
+  * Como fazer funcionar: alterar no arquivo `func.yaml` o `format: ` para `cloudevent`
+* Ao criar um `Ping Source` pela web console, está incluindo o campo `jsonData` que é deprecated.
+  * Versão 4.11 já está corrigido [PR](https://github.com/openshift/console/pull/11548)
