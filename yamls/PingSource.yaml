@@ -12,7 +12,8 @@ metadata:
   annotations:
     openshift.io/generated-by: OpenShiftWebConsole
 spec:
-  data: '{"message": "Hello world!"}' 
+  contentType: application/json
+  data: '{"message": "Hello world From Ping!"}' 
   schedule: '* * * * * '
   sink:
     ref:

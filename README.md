@@ -20,7 +20,7 @@ De preferência, ter 2 clusters. O primeiro zerado, o segundo com todo o ambient
 ## Ambiente
 
 * OpenShift 4.9
-* Criar um BOT no Telegram a partir do [BotFather](https://t.me/BotFather). Ex: 5502170628:AAFTYAVcKd2EKYIKcOP9JLpnck1qk8CBOQc
+* Criar um BOT no Telegram a partir do [BotFather](https://t.me/BotFather). Ex: 15502170628:AAFTYAVcKd2EKYIKcOP9JLpnck1qk8CBOQc1
 
 ## Configuração do OpenShift
 
@@ -67,6 +67,10 @@ De preferência, ter 2 clusters. O primeiro zerado, o segundo com todo o ambient
 
 `kn func create -l quarkus -t http quarkus-http`
 `kn func create -l quarkus -t cloudevent quarkus-event`
+
+## Test using `kn`
+
+`kn func invoke --content-type=application/json --data="Hello World"`
 
 ## Cloud Event
 
