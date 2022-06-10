@@ -104,9 +104,13 @@ https://cloudevents.io/
 
 https://docs.openshift.com/container-platform/4.10/serverless/functions/serverless-developing-quarkus-functions.html
 
-Deploy: 
+Deploy:
 
 https://docs.openshift.com/container-platform/4.10/serverless/functions/serverless-functions-getting-started.html#serverless-deploy-func-kn_serverless-functions-getting-started
+
+## Serverless documentation
+
+[LINK](https://docs.openshift.com/container-platform/4.10/serverless/serverless-release-notes.html)
 
 ## Bugs encontrados
 
