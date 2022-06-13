@@ -7,4 +7,11 @@ spec:
   source:
     enabled: true
   channel:
-    enabled: false
+        enabled: true 
+        bootstrapServers: my-cluster-kafka-bootstrap.my-kafka.svc:9092
+  broker:
+        enabled: true 
+        defaultConfig:
+            bootstrapServers: my-cluster-kafka-bootstrap.my-kafka.svc:9092
+            numPartitions: 3
+            replicationFactor: 1

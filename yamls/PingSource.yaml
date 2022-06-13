@@ -12,6 +12,10 @@ metadata:
   annotations:
     openshift.io/generated-by: OpenShiftWebConsole
 spec:
+  spec:
+  ceOverrides:
+    extensions:
+      extra: '0'
   contentType: application/json
   data: '{"message": "Hello world From Ping!"}' 
   schedule: '* * * * * '
