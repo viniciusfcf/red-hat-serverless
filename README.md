@@ -31,10 +31,6 @@ Deep Dive sobre Serverless no Openshift. Instalando Operators e implantando apli
 * [Link](https://docs.openshift.com/container-platform/4.10/serverless/cli_tools/installing-kn.html#installing-cli-web-console_installing-kn)
 
 
-## Apresentação 
-[Visualizar](https://docs.google.com/presentation/d/1T5T9faNJpU_8nnLeApG_fHK6JaYNjZiz4-I_h4ZIiE4/edit#slide=id.g6b619a1e04_0_2548)
-
-
 ## Demo
 
 De preferência, ter 2 clusters. O primeiro zerado, o segundo com todo o ambiente configurado para pularmos o primeiro passo de "Configuração do OpenShift"
