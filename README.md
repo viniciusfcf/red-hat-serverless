@@ -83,6 +83,9 @@ De preferência, ter 2 clusters. O primeiro zerado, o segundo com todo o ambient
       * /100
       * /1000
 
+* quarkus-func-event e quarkus-funq-event
+  * `kn func deploy -n namespace` dentro de cada projeto
+  
 ## Como criar um Ping Source
 
 * Adicionar um Event Source, do tipo `Ping Source` com os campos `data`: `{"message": "Hello world!"}`, `schedule`: `* * * * *` e `contentType`: `application/json`
